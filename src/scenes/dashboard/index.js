@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Box, Button, IconButton, Typography } from "@mui/material";
 import { grey, green, blue, blueGrey } from "@mui/material/colors";
 import { mockDataTeam as mockTransactions } from "../../data/Data"; // Corrected import
@@ -17,13 +17,24 @@ const Dashboard = () => {
   return (
     <Box m="20px">
       {/* HEADER */}
-      <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        sx={{ color: "white" }}
+      >
+        <Box>
+          <Typography variant="h3" sx={{ color: "white" }}>
+            DASHBOARD
+          </Typography>
+          <Typography variant="h6" sx={{ color: "rgb(29, 121, 102)", marginBottom:'10px' }}>
+            Welcome to your dashboard
+          </Typography>
+        </Box>
         <Box>
           <Button
             sx={{
-              backgroundColor: blue[700],
+              backgroundColor: 'rgb(50, 52, 110)',
               color: grey[100],
               fontSize: "14px",
               fontWeight: "bold",
@@ -46,7 +57,7 @@ const Dashboard = () => {
         {/* ROW 1 */}
         <Box
           gridColumn="span 3"
-          backgroundColor={blueGrey[400]}
+          backgroundColor="rgb(28, 36, 57)"
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -55,16 +66,13 @@ const Dashboard = () => {
             title="12,361"
             subtitle="Emails Sent"
             progress="0.75"
-            icon={
-              <EmailIcon
-                sx={{ color: grey[800], fontSize: "26px" }}
-              />
-            }
+            increase="+14%"
+            icon={<EmailIcon sx={{ color: "rgb(29, 121, 102)", fontSize: "26px" }} />}
           />
         </Box>
         <Box
           gridColumn="span 3"
-          backgroundColor={blueGrey[400]}
+          backgroundColor="rgb(28, 36, 57)"
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -73,16 +81,15 @@ const Dashboard = () => {
             title="431,225"
             subtitle="Sales Obtained"
             progress="0.50"
+            increase="+21%"
             icon={
-              <PointOfSaleIcon
-                sx={{ color: grey[800], fontSize: "26px" }}
-              />
+              <PointOfSaleIcon sx={{ color: "rgb(29, 121, 102)", fontSize: "26px" }} />
             }
           />
         </Box>
         <Box
           gridColumn="span 3"
-          backgroundColor={blueGrey[400]}
+          backgroundColor="rgb(28, 36, 57)"
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -91,16 +98,13 @@ const Dashboard = () => {
             title="32,441"
             subtitle="New Clients"
             progress="0.30"
-            icon={
-              <PersonAddIcon
-                sx={{ color: grey[800], fontSize: "26px" }}
-              />
-            }
+            increase="+5%"
+            icon={<PersonAddIcon sx={{ color: "rgb(29, 121, 102)", fontSize: "26px" }} />}
           />
         </Box>
         <Box
           gridColumn="span 3"
-          backgroundColor={blueGrey[400]}
+          backgroundColor="rgb(28, 36, 57)"
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -109,11 +113,8 @@ const Dashboard = () => {
             title="1,325,134"
             subtitle="Traffic Received"
             progress="0.80"
-            icon={
-              <TrafficIcon
-                sx={{ color: grey[800], fontSize: "26px" }}
-              />
-            }
+            increase="+43%"
+            icon={<TrafficIcon sx={{ color: "rgb(29, 121, 102)", fontSize: "26px" }} />}
           />
         </Box>
 
@@ -121,7 +122,7 @@ const Dashboard = () => {
         <Box
           gridColumn="span 8"
           gridRow="span 2"
-          backgroundColor={blueGrey[400]}
+          backgroundColor="rgb(28, 36, 57)"
         >
           <Box
             mt="25px"
@@ -131,18 +132,10 @@ const Dashboard = () => {
             alignItems="center"
           >
             <Box>
-              <Typography
-                variant="h5"
-                fontWeight="100"
-                color="grey[100]"
-              >
+              <Typography variant="h5" fontWeight="100" color="grey[100]">
                 Revenue Generated
               </Typography>
-              <Typography
-                variant="h4"
-                fontWeight="bold"
-                color="grey[500]"
-              >
+              <Typography variant="h4" fontWeight="bold" color="grey[500]">
                 $59,342.32
               </Typography>
             </Box>
@@ -158,16 +151,15 @@ const Dashboard = () => {
             <LineChart isDashboard={true} />
           </Box> */}
         </Box>
-       
 
         {/* ROW 3 */}
         <Box
           gridColumn="span 4"
           gridRow="span 2"
-          backgroundColor={blueGrey[400]}
+          backgroundColor="rgb(28, 36, 57)"
           p="30px"
         >
-          <Typography variant="h5" fontWeight="600">
+          <Typography variant="h5" fontWeight="600" sx={{color:"white"}}>
             Campaign
           </Typography>
           <Box
@@ -177,21 +169,13 @@ const Dashboard = () => {
             mt="25px"
           >
             <ProgressCircle size="125" />
-            <Typography
-              variant="h5"
-              color="grey[500]"
-              sx={{ mt: "15px" }}
-            >
+            <Typography variant="h6"  sx={{ mt: "15px",color:"rgb(29, 121, 102)" }}>
               $48,352 revenue generated
             </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
+            <Typography sx={{color:"white"}} >Includes extra misc expenditures and costs</Typography>
           </Box>
         </Box>
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor="Grey[400]"
-        >
+        <Box gridColumn="span 4" gridRow="span 2" backgroundColor="Grey[400]">
           {/* <Typography
             variant="h5"
             fontWeight="600"
@@ -203,7 +187,6 @@ const Dashboard = () => {
             <BarChart isDashboard={true} />
           </Box> */}
         </Box>
-        
       </Box>
     </Box>
   );

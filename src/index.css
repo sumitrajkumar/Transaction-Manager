@@ -4,11 +4,15 @@ html,body,#root,.app,.content{
   height: 100%;
   width: 100%;
   font-family: 'Source sans 3' ,sans-serif;
+  overflow: hidden;
+  background-color: rgb(20, 26, 40);
+  margin: 0px;
 }
 
 .app{
   display: flex;
   position: relative;
+  margin-top: 0;
 
 }
 

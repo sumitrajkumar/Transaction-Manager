@@ -1,22 +1,38 @@
-import {Box,UseTheme} from '@mui/material'
+import { Box } from '@mui/material';
+import React from 'react';
 
-import React from 'react'
+const ProgressCircle = ({ progress = 0.75, size = 40 }) => {
+    const angle = progress * 360;
 
-const ProgressCircle = ({ progress = "0.75",size='40'}) =>{
-    const angle = progress *360;
+    return (
+        <Box
+            sx={{
+                background: `conic-gradient(
+                    rgb(29, 121, 102) 0deg ${angle}deg,
+                    rgb(56, 59, 139) ${angle}deg 360deg
+                )`,
+                borderRadius: "50%",
+                width: `${size}px`,
+                height: `${size}px`,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                position: "relative",
+                overflow: "hidden",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+            }}
+        >
+            <Box
+                sx={{
+                    position: "absolute",
+                    borderRadius: "50%",
+                    width: "80%",
+                    height: "80%",
+                    backgroundColor: "rgb(28, 36, 57)",
+                }}
+            />
+        </Box>
+    );
+};
 
-    return(
-        <Box 
-        sx={{
-            background:`radial-gradient("primary[500]" 55% tranparent 56%),
-            conic-gradient(transparent 0deg ${angle}deg, blue[500] ${angle}deg 360deg),
-            green[500]`,
-            borderRadius:"50%",
-            width:`${size}px`,
-            height:`${size}px`,
-        }}
-        />
-    )
-}
-
-export default ProgressCircle
+export default ProgressCircle;

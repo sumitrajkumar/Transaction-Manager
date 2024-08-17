@@ -36,16 +36,16 @@ const CustomSidebar = () => {
   const [selected, setSelected] = useState("Dashboard");
 
   return (
-    <Box>
-      <Sidebar collapsed={isCollapsed}>
-        <Menu iconShape="square">
+    <Box  sx={{ height: '100vh' , position: 'relative',backgroundColor:"rgb(28, 36, 57)"}}>
+      <Sidebar collapsed={isCollapsed} style={{border:'2px solid rgb(28, 36, 57)'}} >
+        <Menu iconShape="square"  >
           {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon style={{ color: "white" }} /> :<MenuOutlinedIcon /> }
             style={{
               color: "white",
-              backgroundColor:"#191919"
+              backgroundColor:"rgb(28, 36, 57)",
             }}
           >
             {!isCollapsed && (
@@ -55,24 +55,24 @@ const CustomSidebar = () => {
                 alignItems="center"
                 ml="15px"
               >
-                <Typography variant="h4" color="#299d91">
+                <Typography variant="h4" color="white">
                   ADMINS
                 </Typography>
-                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+                {/* <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
-                </IconButton>
+                </IconButton> */}
               </Box>
             )}
           </MenuItem>
 
           {!isCollapsed && (
-            <Box pb="25px" backgroundColor="#191919">
+            <Box pb="25px" backgroundColor="rgb(28, 36, 57)">
               <Box display="flex" justifyContent="center" alignItems="center">
                 <img
                   alt="user"
                   width="100px"
                   height="100px"
-                  src={`../../assets/1.jpg`}
+                  src= "/logo192.ppg"
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -85,14 +85,14 @@ const CustomSidebar = () => {
                 >
                   sumit
                 </Typography>
-                <Typography variant="h5" color="white">
+                <Typography variant="h5" color="green">
                   Root Admin
                 </Typography>
               </Box>
             </Box>
           )}
 
-          <Box paddingLeft={isCollapsed ? undefined : "10%"} backgroundColor="#191919">
+          <Box paddingLeft={isCollapsed ? undefined : "0%"} backgroundColor="rgb(28, 36, 57)" >
             <Link to="/" style={{ textDecoration: 'none' }}>
             <Item
               title="Dashboard"
@@ -103,9 +103,9 @@ const CustomSidebar = () => {
             />
             </Link>
             <Typography
-              variant="h6"
+              variant="h7"
               color="white"
-              sx={{ m: "15px 0 5px 20px" }}
+              sx={{ m: "15px 0 5px 20px", fontSize:"20px" }}
             >
               Data
             </Typography>
@@ -120,9 +120,9 @@ const CustomSidebar = () => {
             </Link>
           
             <Typography
-              variant="h6"
+              variant="h7"
               color="white"
-              sx={{ m: "15px 0 5px 20px" }}
+              sx={{ m: "15px 0 5px 20px", fontSize:"20px"  }}
             >
               Pages
             </Typography>
@@ -136,9 +136,9 @@ const CustomSidebar = () => {
             />
             </Link>
             <Typography
-              variant="h6"
+              variant="h7"
               color="white"
-              sx={{ m: "15px 0 5px 20px" }}
+              sx={{ m: "15px 0 5px 20px", fontSize:"20px"  }}
             >
               Charts
             </Typography>
