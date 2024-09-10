@@ -1,7 +1,10 @@
-import React from 'react'
-import { ResponsiveBar } from '@nivo/bar'
-import { mockDataTeam } from "../data/Data"
+import React from 'react';
+import { ResponsiveBar } from '@nivo/bar';
+import { mockDataTeam } from "../data/Data";
 import Header from './Header';
+
+
+const colors = ['#E63946', '#F1FAEE', '#F1D302', '#F7D4D6', '#A8DADC', '#9B5B5C', '#1d7966'];
 
 const transformedData = mockDataTeam.reduce((acc, item) => {
   const existing = acc.find(d => d.category === item.category);
@@ -13,85 +16,103 @@ const transformedData = mockDataTeam.reduce((acc, item) => {
   return acc;
 }, []);
 
+
+const getColor = (bar) => {
+
+  const index = transformedData.findIndex(d => d.category === bar.indexValue);
+  return colors[index % colors.length]; 
+};
+
 const BarChart = () => (
-    <>
+  <>
     <Header title="Bar Chart" subtitle="Graph between amount and categories" />
-    <ResponsiveBar
+    <div style={{ height: "60vh" }}>
+      <ResponsiveBar
         data={transformedData}
         keys={['amount']}
         indexBy="category"
-        margin={{ top: 60, right:90, bottom: 40, left: 90 }}  
+        margin={{ top: 60, right: 90, bottom: 40, left: 90 }}
+        border="2px solid red"
         padding={0.3}
         valueScale={{ type: 'linear' }}
         indexScale={{ type: 'band', round: true }}
-        colors={{ scheme: 'set2' }} 
+        colors={getColor} 
         borderColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    1.6
-                ]
-            ]
+          from: 'color',
+          modifiers: [
+            ['darker', 1.6]
+          ]
         }}
         axisTop={null}
         axisRight={null}
         axisBottom={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: 'Category',
-            legendPosition: 'middle',
-            legendOffset: 30  
+          tickSize: 5,
+          tickPadding: 5,
+          tickRotation: 0,
+          legend: 'Category',
+          legendPosition: 'middle',
+          legendOffset: 30
         }}
         axisLeft={{
-            tickSize: 5,
-            tickPadding: 5,
-            tickRotation: 0,
-            legend: 'Amount',
-            legendPosition: 'middle',
-            legendOffset: -60
+          tickSize: 5,
+          tickPadding: 5,
+          tickRotation: 0,
+          legend: 'Amount',
+          legendPosition: 'middle',
+          legendOffset: -60,
         }}
-        labelSkipWidth={20}  
-        labelSkipHeight={10} 
+        labelSkipWidth={20}
+        labelSkipHeight={10}
         labelTextColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    1.6
-                ]
-            ]
+          from: 'color',
+          modifiers: [
+            ['darker', 1.6]
+          ]
+        }}
+        theme={{
+          axis: {
+            ticks: {
+              text: {
+                fill: "white"
+              }
+            },
+            legend: {
+              text: {
+                fill: "rgb(102, 194, 165)"
+              }
+            }
+          }
         }}
         legends={[
-            {
-                dataFrom: 'keys',
-                anchor: 'bottom-right',
-                direction: 'column',
-                justify: false,
-                translateX: 10,  
-                translateY: 0,
-                itemsSpacing: 2,
-                itemWidth: 50,  
-                itemHeight: 1,  
-                itemDirection: 'left-to-right',
-                itemOpacity: 0.85,
-                symbolSize: 15,  
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemOpacity: 1
-                        }
-                    }
-                ]
-            }
+          {
+            dataFrom: 'keys',
+            anchor: 'bottom-right',
+            direction: 'column',
+            justify: false,
+            translateX: 20,
+            translateY: 30,
+            itemsSpacing: 2,
+            itemWidth: 50,
+            itemHeight: 1,
+            itemDirection: 'left-to-right',
+            itemOpacity: 0.85,
+            symbolSize: 15,
+            effects: [
+              {
+                on: 'hover',
+                style: {
+                  itemOpacity: 1
+                }
+              }
+            ]
+          }
         ]}
         role="application"
         ariaLabel="Nivo bar chart demo"
         barAriaLabel={e => `${e.id}: ${e.formattedValue} in category: ${e.indexValue}`}
-    />
-    </>
-)
+      />
+    </div>
+  </>
+);
 
-export default BarChart
+export default BarChart;

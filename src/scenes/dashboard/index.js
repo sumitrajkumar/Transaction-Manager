@@ -27,14 +27,17 @@ const Dashboard = () => {
           <Typography variant="h3" sx={{ color: "white" }}>
             DASHBOARD
           </Typography>
-          <Typography variant="h6" sx={{ color: "rgb(29, 121, 102)", marginBottom:'10px' }}>
+          <Typography
+            variant="h6"
+            sx={{ color: "rgb(29, 121, 102)", marginBottom: "10px" }}
+          >
             Welcome to your dashboard
           </Typography>
         </Box>
         <Box>
           <Button
             sx={{
-              backgroundColor: 'rgb(50, 52, 110)',
+              backgroundColor: "rgb(50, 52, 110)",
               color: grey[100],
               fontSize: "14px",
               fontWeight: "bold",
@@ -49,143 +52,185 @@ const Dashboard = () => {
 
       {/* GRID & CHARTS */}
       <Box
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="140px"
-        gap="20px"
+        display="flex"
+        flexDirection="column"
+        overflow="auto" 
+     
+        height="70vh"
+        width="100%" 
       >
         {/* ROW 1 */}
         <Box
-          gridColumn="span 3"
-          backgroundColor="rgb(28, 36, 57)"
           display="flex"
           alignItems="center"
           justifyContent="center"
-        >
-          <StatBox
-            title="12,361"
-            subtitle="Emails Sent"
-            progress="0.75"
-            increase="+14%"
-            icon={<EmailIcon sx={{ color: "rgb(29, 121, 102)", fontSize: "26px" }} />}
-          />
-        </Box>
-        <Box
-          gridColumn="span 3"
-          backgroundColor="rgb(28, 36, 57)"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <StatBox
-            title="431,225"
-            subtitle="Sales Obtained"
-            progress="0.50"
-            increase="+21%"
-            icon={
-              <PointOfSaleIcon sx={{ color: "rgb(29, 121, 102)", fontSize: "26px" }} />
-            }
-          />
-        </Box>
-        <Box
-          gridColumn="span 3"
-          backgroundColor="rgb(28, 36, 57)"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <StatBox
-            title="32,441"
-            subtitle="New Clients"
-            progress="0.30"
-            increase="+5%"
-            icon={<PersonAddIcon sx={{ color: "rgb(29, 121, 102)", fontSize: "26px" }} />}
-          />
-        </Box>
-        <Box
-          gridColumn="span 3"
-          backgroundColor="rgb(28, 36, 57)"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <StatBox
-            title="1,325,134"
-            subtitle="Traffic Received"
-            progress="0.80"
-            increase="+43%"
-            icon={<TrafficIcon sx={{ color: "rgb(29, 121, 102)", fontSize: "26px" }} />}
-          />
-        </Box>
-
-        {/* ROW 2 */}
-        <Box
-          gridColumn="span 8"
-          gridRow="span 2"
-          backgroundColor="rgb(28, 36, 57)"
+          flexWrap="wrap"
         >
           <Box
-            mt="25px"
-            p="0 30px"
-            display="flex "
-            justifyContent="space-between"
+            height="20vh"
+            width="38vh"
+            backgroundColor="rgb(28, 36, 57)"
+            display="flex"
             alignItems="center"
+            justifyContent="center"
+            marginBottom="20px"
+            marginRight="10px"
+            marginLeft="10px"
           >
-            <Box>
-              <Typography variant="h5" fontWeight="100" color="grey[100]">
-                Revenue Generated
-              </Typography>
-              <Typography variant="h4" fontWeight="bold" color="grey[500]">
-                $59,342.32
-              </Typography>
-            </Box>
-            <Box>
-              <IconButton>
-                <DownloadOutlinedIcon
-                  sx={{ fontSize: "36px", color: grey[800] }}
+            <StatBox
+              title="12,361"
+              subtitle="Emails Sent"
+              progress="0.75"
+              increase="+14%"
+              icon={
+                <EmailIcon
+                  sx={{ color: "rgb(29, 121, 102)", fontSize: "26px" }}
                 />
-              </IconButton>
-            </Box>
+              }
+            />
           </Box>
-          {/* <Box height="10px" m="-20px 0 0 0">
-            <LineChart isDashboard={true} />
-          </Box> */}
-        </Box>
 
-        {/* ROW 3 */}
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor="rgb(28, 36, 57)"
-          p="30px"
-        >
-          <Typography variant="h5" fontWeight="600" sx={{color:"white"}}>
-            Campaign
-          </Typography>
           <Box
+            height="20vh"
+            width="38vh"
+            backgroundColor="rgb(28, 36, 57)"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            marginBottom="20px"
+            marginRight="10px"
+            marginLeft="10px"
+          >
+            <StatBox
+              title="431,225"
+              subtitle="Sales Obtained"
+              progress="0.50"
+              increase="+21%"
+              icon={
+                <PointOfSaleIcon
+                  sx={{ color: "rgb(29, 121, 102)", fontSize: "26px" }}
+                />
+              }
+            />
+          </Box>
+          <Box
+            height="20vh"
+            width="38vh"
+            backgroundColor="rgb(28, 36, 57)"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            marginBottom="20px"
+            marginRight="10px"
+            marginLeft="10px"
+          >
+            <StatBox
+              title="32,441"
+              subtitle="New Clients"
+              progress="0.30"
+              increase="+5%"
+              icon={
+                <PersonAddIcon
+                  sx={{ color: "rgb(29, 121, 102)", fontSize: "26px" }}
+                />
+              }
+            />
+          </Box>
+          <Box
+            height="20vh"
+            width="38vh"
+            backgroundColor="rgb(28, 36, 57)"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            marginBottom="20px"
+            marginRight="10px"
+            marginLeft="10px"
+          >
+            <StatBox
+              title="1,325,134"
+              subtitle="Traffic Received"
+              progress="0.80"
+              increase="+43%"
+              icon={
+                <TrafficIcon
+                  sx={{ color: "rgb(29, 121, 102)", fontSize: "26px" }}
+                />
+              }
+            />
+          </Box>
+        </Box>
+        {/* ROW 2 */}
+        <Box display="flex">
+          <Box
+            gridColumn="span 8"
+            gridRow="span 2"
+            backgroundColor="rgb(28, 36, 57)"
             display="flex"
             flexDirection="column"
-            alignItems="center"
-            mt="25px"
+            height="auto"
           >
-            <ProgressCircle size="125" />
-            <Typography variant="h6"  sx={{ mt: "15px",color:"rgb(29, 121, 102)" }}>
-              $48,352 revenue generated
-            </Typography>
-            <Typography sx={{color:"white"}} >Includes extra misc expenditures and costs</Typography>
+            <Box
+              mt="25px"
+              p="0 30px"
+              display="flex "
+              justifyContent="space-between"
+              alignItems="center"
+            >
+              <Box>
+                <Typography variant="h5" fontWeight="100" color="white">
+                  Revenue Generated
+                </Typography>
+                <Typography variant="h4" fontWeight="bold" color="#1d7966">
+                  $59,342.32
+                </Typography>
+              </Box>
+              <Box>
+                <IconButton>
+                  <DownloadOutlinedIcon
+                    sx={{ fontSize: "36px", color: "white" }}
+                  />
+                </IconButton>
+              </Box>
+            </Box>
+            <Box height="100%" mt="20px" p="0 20px">
+              {/* <BarChart isDashboard={true} /> */}
+            </Box>
           </Box>
-        </Box>
-        <Box gridColumn="span 4" gridRow="span 2" backgroundColor="Grey[400]">
-          {/* <Typography
-            variant="h5"
-            fontWeight="600"
-            sx={{ padding: "30px 30px 0 30px" }}
+
+          {/* ROW 3 */}
+          <Box
+            gridColumn="span 4"
+            gridRow="span 2"
+            backgroundColor="rgb(28, 36, 57)"
+            p="30px"
           >
-            Sales Quantity
-          </Typography> */}
-          {/* <Box height="250px" mt="-20px">
-            <BarChart isDashboard={true} />
-          </Box> */}
+            <Typography variant="h5" fontWeight="600" sx={{ color: "white" }}>
+              Campaign
+            </Typography>
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              mt="25px"
+            >
+              <ProgressCircle size="125" />
+              <Typography
+                variant="h6"
+                sx={{ mt: "15px", color: "rgb(29, 121, 102)" }}
+              >
+                $48,352 revenue generated
+              </Typography>
+              <Typography sx={{ color: "white" }}>
+                Includes extra misc expenditures and costs
+              </Typography>
+            </Box>
+          </Box>
+          <Box
+            gridColumn="span 4"
+            gridRow="span 2"
+            backgroundColor="Grey[400]"
+          ></Box>
         </Box>
       </Box>
     </Box>
