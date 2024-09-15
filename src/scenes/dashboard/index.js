@@ -12,6 +12,7 @@ import LineChart from "../../components/LineChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import UseBarChart from "../../components/UseBarChart";
 
 const Dashboard = () => {
   return (
@@ -54,10 +55,9 @@ const Dashboard = () => {
       <Box
         display="flex"
         flexDirection="column"
-        overflow="auto" 
-     
+        overflow="auto"
         height="70vh"
-        width="100%" 
+        width="100%"
       >
         {/* ROW 1 */}
         <Box
@@ -161,42 +161,21 @@ const Dashboard = () => {
           </Box>
         </Box>
         {/* ROW 2 */}
-        <Box display="flex">
-          <Box
-            gridColumn="span 8"
-            gridRow="span 2"
-            backgroundColor="rgb(28, 36, 57)"
-            display="flex"
-            flexDirection="column"
-            height="auto"
-          >
-            <Box
-              mt="25px"
-              p="0 30px"
-              display="flex "
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Box>
-                <Typography variant="h5" fontWeight="100" color="white">
-                  Revenue Generated
-                </Typography>
-                <Typography variant="h4" fontWeight="bold" color="#1d7966">
-                  $59,342.32
-                </Typography>
+        <Box display="flex"  justifyContent="center" flexWrap="wrap">
+              <Box backgroundColor="rgb(28, 36, 57)" width="50vw" mr="40px" display="flex "  justifyContent="space-between"  flexDirection="column" >
+                    <Box mt="25px" p="0 30px" display="flex "  justifyContent="space-between" alignItems="center">
+                        <Box>
+                          <Typography variant="h5" fontWeight="100" color="white">Revenue Generated</Typography>
+                          <Typography variant="h6" fontWeight="bold" color="#1d7966">$59,342.32</Typography>
+                        </Box>
+                        <Box>
+                          <IconButton><DownloadOutlinedIcon sx={{ fontSize: "36px", color: "white" }}/></IconButton>
+                        </Box>
+                    </Box>
+                    <Box   >
+                      <UseBarChart  />
+                    </Box>
               </Box>
-              <Box>
-                <IconButton>
-                  <DownloadOutlinedIcon
-                    sx={{ fontSize: "36px", color: "white" }}
-                  />
-                </IconButton>
-              </Box>
-            </Box>
-            <Box height="100%" mt="20px" p="0 20px">
-              {/* <BarChart isDashboard={true} /> */}
-            </Box>
-          </Box>
 
           {/* ROW 3 */}
           <Box
